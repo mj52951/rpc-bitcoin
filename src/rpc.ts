@@ -414,7 +414,7 @@ export class RPCClient extends RESTClient {
     try {
       const response = await this.batch(body, uri);
       return this.fullResponse ? response : response.result;
-    } catch (error) {
+    } catch (error: any) {
       if (error.error && error.error.error && error.error.result === null) {
         throw this.fullResponse ? error.error : error.error.error;
       }
